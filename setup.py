@@ -44,5 +44,5 @@ setup(name="fpga_netlist",
       packages=['fpga_netlist'],
       include_package_data=True,
       install_requires=['numpy>=1.9.0', 'Cython>=0.21', 'pandas>=0.14.1',
-                        'cythrust==0.9'],
+                        'cythrust==0.9.post3.dev75355018'],
       ext_modules=ext_modules)
