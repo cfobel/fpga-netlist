@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import os
 import pkg_resources
 import sys
 from distutils.core import setup
@@ -9,13 +10,12 @@ from distutils.extension import Extension
 
 from Cython.Build import cythonize
 import numpy as np
-from path_helpers import path
 
 
 pyx_files = ['fpga_netlist/CONNECTIONS_TABLE.pyx']
 ext_modules = [Extension(f[:-4].replace('/', '.'), [f],
                          extra_compile_args=['-O3', '-msse3', '-std=c++0x'],
-                         include_dirs=[path('~/local/include').expand(),
+                         include_dirs=[os.path.expanduser('~/local/include'),
                                        '/usr/local/cuda-6.5/include',
                                        pkg_resources
                                        .resource_filename('cythrust', ''),
